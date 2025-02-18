@@ -47,7 +47,8 @@ export interface IdempotencyParams<TRequest = any> {
   original_req: TRequest;
 }
 
-export interface IdempotencyParamsWithDefaults extends IdempotencyParams {
+export interface IdempotencyParamsWithDefaults<TRequest = any>
+  extends IdempotencyParams<TRequest> {
   options: Required<
     Omit<IdempotencyOptions, "skipRequest" | "getExtendsKey">
   > & {
