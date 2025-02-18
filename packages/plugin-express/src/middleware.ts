@@ -78,6 +78,7 @@ const successHandler = (nodeIdempotency: Idempotency): ExpressMiddleware => {
       body: request.body as Record<string, unknown>,
       path: request.url,
       method: request.method,
+      original_req: request,
     };
     try {
       const idempotencyResponse: IdempotencyResponse | undefined =
