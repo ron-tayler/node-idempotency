@@ -40,6 +40,7 @@ const onResponse = async (
     body: request.body as Record<string, unknown>,
     path: request.url,
     method: request.method,
+    original_req: request,
   };
 
   const { statusCode } = reply;
@@ -67,6 +68,7 @@ const onRequest = async (
     body: request.body as Record<string, unknown>,
     path: request.url,
     method: request.method,
+    original_req: request,
   };
   try {
     const idempotencyResponse: IdempotencyResponse | undefined =

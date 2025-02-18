@@ -38,12 +38,13 @@ export interface IdempotencyOptions {
   ) => string | Promise<string>;
 }
 
-export interface IdempotencyParams {
+export interface IdempotencyParams<TRequest = any> {
   headers: Record<string, unknown>;
   path: string;
   body?: Record<string, unknown>;
   method?: string;
   options?: IdempotencyOptions;
+  original_req: TRequest;
 }
 
 export interface IdempotencyParamsWithDefaults extends IdempotencyParams {

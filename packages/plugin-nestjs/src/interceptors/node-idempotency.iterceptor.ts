@@ -65,6 +65,7 @@ export class NodeIdempotencyInterceptor implements NestInterceptor {
       path: request.url,
       method: request.method,
       options,
+      original_req: request,
     };
 
     try {
